@@ -17,6 +17,9 @@
   <meta content="https://vovelio.github.io/kr3-responsive-shop/images/preview.jpg" property="og:image"/>
  </head>
  <body>
+  <a class="skip-link" href="#main">
+   Перейти к основному содержимому
+  </a>
   <header class="site-header">
    <div class="site-header__inner">
     <a class="site-header__logo" href="index.html">
@@ -32,6 +35,16 @@
       <li class="site-nav__item">
        <a class="site-nav__link" href="catalog.html">
         Каталог
+       </a>
+      </li>
+      <li class="site-nav__item">
+       <a aria-current="page" class="site-nav__link site-nav__link--active" href="product.html">
+        Товар
+       </a>
+      </li>
+      <li class="site-nav__item">
+       <a class="site-nav__link" href="order.html">
+        Заказ
        </a>
       </li>
       <li class="site-nav__item">
@@ -58,7 +71,7 @@
     </nav>
    </div>
   </header>
-  <main>
+  <main id="main" tabindex="-1">
    <nav aria-label="Хлебные крошки" class="breadcrumbs">
     <a class="breadcrumbs__link" href="index.html">
      Главная
@@ -66,13 +79,13 @@
     <a class="breadcrumbs__link" href="catalog.html">
      Каталог
     </a>
-    <span class="breadcrumbs__current">
+    <span aria-current="page" class="breadcrumbs__current">
      Побег с пар
     </span>
    </nav>
    <section class="section product">
     <div class="product__media">
-     <img alt="Изображение товара 1" class="product-card__image" height="1254" loading="lazy" src="images/leave.png" width="1254"/>
+     <img alt="Побег студента с пары" class="product-card__image" height="1254" loading="lazy" src="images/leave.png" width="1254"/>
     </div>
     <div class="product__content">
      <h1 class="product__title">
@@ -99,7 +112,7 @@
     <h2>
      Характеристики товара
     </h2>
-    <div class="table-wrapper">
+    <div aria-label="Таблица характеристик с горизонтальной прокруткой" class="table-wrapper" role="region" tabindex="0">
      <table class="product-table">
       <caption>
        Основные характеристики товара
@@ -242,6 +255,9 @@
      Перейти к контактам
     </a>
    </aside>
+   <p class="success-message" hidden="" id="success-message" role="status" tabindex="-1">
+    Форма успешно заполнена. Учебный проект: данные никуда не отправляются.
+   </p>
   </main>
   <footer class="site-footer">
    <p>
@@ -256,25 +272,31 @@
     Оформление заявки
    </h2>
    <form action="#" class="order-form" id="order-form" method="post" novalidate="">
+    <p class="form-note">
+     Поля со звёздочкой обязательны.
+    </p>
     <input id="selected-product" name="selected-product" type="hidden"/>
     <div class="order-form__field">
      <label class="order-form__label" for="order-name">
       Имя
+      *
      </label>
      <input class="order-form__input" id="order-name" name="name" required="" type="text"/>
     </div>
     <div class="order-form__field">
      <label class="order-form__label" for="order-email">
       E-mail
+      *
      </label>
      <input autocomplete="email" class="order-form__input" id="order-email" name="email" placeholder="example@mail.ru" required="" type="email"/>
     </div>
     <div class="order-form__field">
      <label class="order-form__label" for="order-phone">
       Телефон
+      *
      </label>
-     <input class="order-form__input" id="order-phone" inputmode="tel" name="phone" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" placeholder="+7 (900) 000-00-00" required="" type="tel"/>
-     <small>
+     <input aria-describedby="order-phone-help" class="order-form__input" id="order-phone" inputmode="tel" name="phone" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" placeholder="+7 (900) 000-00-00" required="" type="tel"/>
+     <small id="order-phone-help">
       Формат: +7 (900) 000-00-00
      </small>
     </div>
@@ -287,6 +309,7 @@
     <div class="order-form__field">
      <label class="order-form__label" for="order-topic">
       Тема заявки
+      *
      </label>
      <select class="order-form__select" id="order-topic" name="topic" required="">
       <option value="">
@@ -310,9 +333,10 @@
      <textarea class="order-form__textarea" id="order-comment" name="comment" placeholder="Укажите дополнительную информацию" rows="4"></textarea>
     </div>
     <div class="order-form__field order-form__field--wide">
-     <label class="order-form__label">
+     <label class="order-form__label" for="order-agreement">
       <input id="order-agreement" name="agreement" required="" type="checkbox"/>
       Я согласен на обработку данных
+      *
      </label>
     </div>
     <div class="order-form__actions order-form__field--wide">
@@ -325,8 +349,5 @@
     </div>
    </form>
   </dialog>
-  <p class="success-message" hidden="" id="success-message">
-   Форма успешно отправлена!
-  </p>
  </body>
 </html>

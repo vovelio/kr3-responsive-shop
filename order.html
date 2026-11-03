@@ -17,6 +17,9 @@
   <meta content="https://vovelio.github.io/kr3-responsive-shop/images/preview.jpg" property="og:image"/>
  </head>
  <body>
+  <a class="skip-link" href="#main">
+   Перейти к основному содержимому
+  </a>
   <header class="site-header">
    <div class="site-header__inner">
     <a class="site-header__logo" href="index.html">
@@ -40,7 +43,7 @@
        </a>
       </li>
       <li class="site-nav__item">
-       <a class="site-nav__link site-nav__link--active" href="order.html">
+       <a aria-current="page" class="site-nav__link site-nav__link--active" href="order.html">
         Заказ
        </a>
       </li>
@@ -68,12 +71,12 @@
     </nav>
    </div>
   </header>
-  <main>
+  <main id="main" tabindex="-1">
    <nav aria-label="Хлебные крошки" class="breadcrumbs">
     <a class="breadcrumbs__link" href="index.html">
      Главная
     </a>
-    <span class="breadcrumbs__current">
+    <span aria-current="page" class="breadcrumbs__current">
      Оформление заказа
     </span>
    </nav>
@@ -85,10 +88,14 @@
      Выберите товар и заполните контактные данные.
     </p>
     <form action="#" class="order-form" id="order-form" method="post" novalidate="">
+     <p class="form-note">
+      Поля со звёздочкой обязательны.
+     </p>
      <!-- Выбор товара -->
      <div class="order-form__field">
       <label class="order-form__label" for="selected-product">
        Выбранный товар
+       *
       </label>
       <select class="order-form__select" id="selected-product" name="selected-product" required="">
        <option value="">
@@ -118,6 +125,7 @@
      <div class="order-form__field">
       <label class="order-form__label" for="order-name">
        Имя
+       *
       </label>
       <input autocomplete="name" class="order-form__input" id="order-name" name="name" placeholder="Ваше имя" required="" type="text"/>
      </div>
@@ -125,6 +133,7 @@
      <div class="order-form__field">
       <label class="order-form__label" for="order-email">
        E-mail
+       *
       </label>
       <input autocomplete="email" class="order-form__input" id="order-email" name="email" placeholder="example@mail.ru" required="" type="email"/>
      </div>
@@ -132,9 +141,10 @@
      <div class="order-form__field">
       <label class="order-form__label" for="order-phone">
        Телефон
+       *
       </label>
-      <input autocomplete="tel" class="order-form__input" id="order-phone" inputmode="tel" name="phone" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" placeholder="+7 (900) 000-00-00" required="" type="tel"/>
-      <small>
+      <input aria-describedby="order-phone-help" autocomplete="tel" class="order-form__input" id="order-phone" inputmode="tel" name="phone" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" placeholder="+7 (900) 000-00-00" required="" type="tel"/>
+      <small id="order-phone-help">
        Формат: +7 (900) 000-00-00
       </small>
      </div>
@@ -149,6 +159,7 @@
      <div class="order-form__field">
       <label class="order-form__label" for="order-topic">
        Тема заявки
+       *
       </label>
       <select class="order-form__select" id="order-topic" name="topic" required="">
        <option value="">
@@ -177,6 +188,7 @@
       <label for="order-agreement">
        <input id="order-agreement" name="agreement" required="" type="checkbox"/>
        Я согласен на обработку данных
+       *
       </label>
      </div>
      <!-- Кнопка -->
@@ -187,6 +199,9 @@
      </div>
     </form>
    </section>
+   <p class="success-message" hidden="" id="success-message" role="status" tabindex="-1">
+    Форма успешно заполнена. Учебный проект: данные никуда не отправляются.
+   </p>
   </main>
   <footer class="site-footer">
    <p>
