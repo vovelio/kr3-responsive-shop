@@ -13,7 +13,7 @@
   --color-surface: #f7f7f7;
   --color-surface-accent: #eef5ff;
   --color-danger: #b00020;
-  --color-success: #168a2f;
+  --color-success: #176d2b;
   --color-success-bg: #eefaf0;
   --color-white: #ffffff;
 
@@ -319,7 +319,7 @@ a:focus-visible {
 }
 
 .product-card__badge-hit {
-  background-color: var(--color-p);
+  background-color: var(--color-primary);
 }
 
 .product-card__badge-discount {

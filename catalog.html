@@ -17,6 +17,9 @@
   <meta content="https://vovelio.github.io/kr3-responsive-shop/images/preview.jpg" property="og:image"/>
  </head>
  <body>
+  <a class="skip-link" href="#main">
+   Перейти к основному содержимому
+  </a>
   <header class="site-header">
    <div class="site-header__inner">
     <a class="site-header__logo" href="index.html">
@@ -30,8 +33,18 @@
        </a>
       </li>
       <li class="site-nav__item">
-       <a class="site-nav__link site-nav__link--active" href="catalog.html">
+       <a aria-current="page" class="site-nav__link site-nav__link--active" href="catalog.html">
         Каталог
+       </a>
+      </li>
+      <li class="site-nav__item">
+       <a class="site-nav__link" href="product.html">
+        Товар
+       </a>
+      </li>
+      <li class="site-nav__item">
+       <a class="site-nav__link" href="order.html">
+        Заказ
        </a>
       </li>
       <li class="site-nav__item">
@@ -58,16 +71,19 @@
     </nav>
    </div>
   </header>
-  <main>
+  <main id="main" tabindex="-1">
    <nav aria-label="Хлебные крошки" class="breadcrumbs">
     <a class="breadcrumbs__link" href="index.html">
      Главная
     </a>
-    <span class="breadcrumbs__current">
-     Контакты
+    <span aria-current="page" class="breadcrumbs__current">
+     Каталог
     </span>
    </nav>
-   <section class="catalog-layout">
+   <h1>
+    Каталог товаров
+   </h1>
+   <div class="catalog-layout">
     <aside class="catalog-filters">
      <h2>
       Фильтры
@@ -77,16 +93,16 @@
        <legend>
         Категория
        </legend>
-       <label>
-        <input name="category" type="checkbox" value="all"/>
+       <label for="field-1-1">
+        <input id="field-1-1" name="category" type="checkbox" value="all"/>
         Все товары
        </label>
-       <label>
-        <input name="category" type="checkbox" value="popular"/>
+       <label for="field-1-2">
+        <input id="field-1-2" name="category" type="checkbox" value="popular"/>
         Популярные
        </label>
-       <label>
-        <input name="category" type="checkbox" value="new"/>
+       <label for="field-1-3">
+        <input id="field-1-3" name="category" type="checkbox" value="new"/>
         Новинки
        </label>
       </fieldset>
@@ -118,7 +134,7 @@
        <h3 class="product-card__title">
         Рюкзак
        </h3>
-       <img alt="Изображение товара Рюкзак" class="product-card__image" height="1254" loading="lazy" sizes="(min-width: 1280px) 240px, (min-width: 1024px) 330px, (min-width: 640px) calc((100vw - 88px) / 2), calc(100vw - 64px)" src="images/backpack.png" srcset="images/backpack-480.webp 480w, images/backpack-960.webp 960w" width="1254"/>
+       <img alt="Студенческий рюкзак" class="product-card__image" height="1254" loading="lazy" sizes="(min-width: 1280px) 240px, (min-width: 1024px) 330px, (min-width: 640px) calc((100vw - 88px) / 2), calc(100vw - 64px)" src="images/backpack.png" srcset="images/backpack-480.webp 480w, images/backpack-960.webp 960w" width="1254"/>
        <p class="product-card__description">
         Супер модный рюкзак для повседневного использования
        </p>
@@ -138,7 +154,7 @@
        <h3 class="product-card__title">
         Пенал
        </h3>
-       <img alt="Изображение товара Пенал" class="product-card__image" height="1254" loading="lazy" src="images/pencil-case.png" width="1254"/>
+       <img alt="Пенал для письменных принадлежностей" class="product-card__image" height="1254" loading="lazy" src="images/pencil-case.png" width="1254"/>
        <p class="product-card__description">
         Супер модный пенал для повседневного использования
        </p>
@@ -146,7 +162,7 @@
         Цена: 1500 руб.
        </p>
        <div class="product-card__actions">
-        <button class="button button--primary product-card__button" data-product="backpack" type="button">
+        <button class="button button--primary product-card__button" data-product="case" type="button">
          Заказать
         </button>
         <a class="button button--primary" href="product.html">
@@ -158,7 +174,7 @@
        <h3 class="product-card__title">
         Личный портал
        </h3>
-       <img alt="Изображение товара Личный портал в холодильник" class="product-card__image" height="1254" loading="lazy" src="images/portal.png" width="1254"/>
+       <img alt="Студент достаёт напиток через портал в холодильник" class="product-card__image" height="1254" loading="lazy" src="images/portal.png" width="1254"/>
        <p class="product-card__description">
         Супер быстрый метод доставания напитков и еды из холодильника
        </p>
@@ -178,7 +194,7 @@
        <h3 class="product-card__title">
         Личная лавочка
        </h3>
-       <img alt="Изображение товара Личная лавочка" class="product-card__image" height="1254" loading="lazy" src="images/personal-bench.png" width="1254"/>
+       <img alt="Личная лавочка для отдыха" class="product-card__image" height="1254" loading="lazy" src="images/personal-bench.png" width="1254"/>
        <p class="product-card__description">
         Удобная лавочка для личного использования
        </p>
@@ -201,7 +217,7 @@
        <h3 class="product-card__title">
         Защита...
        </h3>
-       <img alt="Изображение товара Защита от внешних воздействий" class="product-card__image" height="1254" loading="lazy" src="images/aluminum-cap.png" width="1254"/>
+       <img alt="Шапочка из алюминиевой фольги" class="product-card__image" height="1254" loading="lazy" src="images/aluminum-cap.png" width="1254"/>
        <p class="product-card__description">
         Защита от внешних воздействий
        </p>
@@ -224,7 +240,7 @@
        <h3 class="product-card__title">
         Побег с пар
        </h3>
-       <img alt="Изображение товара Побег с пар" class="product-card__image" height="1254" loading="lazy" src="images/leave.png" width="1254"/>
+       <img alt="Побег студента с пары" class="product-card__image" height="1254" loading="lazy" src="images/leave.png" width="1254"/>
        <p class="product-card__description">
         Побег с а9
        </p>
@@ -242,7 +258,10 @@
       </article>
      </div>
     </section>
-   </section>
+   </div>
+   <p class="success-message" hidden="" id="success-message" role="status" tabindex="-1">
+    Форма успешно заполнена. Учебный проект: данные никуда не отправляются.
+   </p>
   </main>
   <footer class="site-footer">
    <p>
@@ -257,25 +276,31 @@
     Оформление заявки
    </h2>
    <form action="#" class="order-form" id="order-form" method="post" novalidate="">
+    <p class="form-note">
+     Поля со звёздочкой обязательны.
+    </p>
     <input id="selected-product" name="selected-product" type="hidden"/>
     <div class="order-form__field">
      <label class="order-form__label" for="order-name">
       Имя
+      *
      </label>
      <input class="order-form__input" id="order-name" name="name" required="" type="text"/>
     </div>
     <div class="order-form__field">
      <label class="order-form__label" for="order-email">
       E-mail
+      *
      </label>
      <input autocomplete="email" class="order-form__input" id="order-email" name="email" placeholder="example@mail.ru" required="" type="email"/>
     </div>
     <div class="order-form__field">
      <label class="order-form__label" for="order-phone">
       Телефон
+      *
      </label>
-     <input class="order-form__input" id="order-phone" inputmode="tel" name="phone" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" placeholder="+7 (900) 000-00-00" required="" type="tel"/>
-     <small>
+     <input aria-describedby="order-phone-help" class="order-form__input" id="order-phone" inputmode="tel" name="phone" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" placeholder="+7 (900) 000-00-00" required="" type="tel"/>
+     <small id="order-phone-help">
       Формат: +7 (900) 000-00-00
      </small>
     </div>
@@ -288,6 +313,7 @@
     <div class="order-form__field">
      <label class="order-form__label" for="order-topic">
       Тема заявки
+      *
      </label>
      <select class="order-form__select" id="order-topic" name="topic" required="">
       <option value="">
@@ -311,9 +337,10 @@
      <textarea class="order-form__textarea" id="order-comment" name="comment" placeholder="Укажите дополнительную информацию" rows="4"></textarea>
     </div>
     <div class="order-form__field order-form__field--wide">
-     <label class="order-form__label">
+     <label class="order-form__label" for="order-agreement">
       <input id="order-agreement" name="agreement" required="" type="checkbox"/>
       Я согласен на обработку данных
+      *
      </label>
     </div>
     <div class="order-form__actions order-form__field--wide">
@@ -326,8 +353,5 @@
     </div>
    </form>
   </dialog>
-  <p class="success-message" hidden="" id="success-message">
-   Форма успешно отправлена!
-  </p>
  </body>
 </html>

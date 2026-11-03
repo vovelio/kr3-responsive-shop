@@ -13,8 +13,13 @@
   <meta content="Учебный интернет-магазин" property="og:title"/>
   <meta content="Учебный frontend-проект интернет-магазина." property="og:description"/>
   <meta content="https://vovelio.github.io/kr3-responsive-shop/images/preview.jpg" property="og:image"/>
+  <script defer="" src="js/main.js">
+  </script>
  </head>
  <body>
+  <a class="skip-link" href="#main">
+   Перейти к основному содержимому
+  </a>
   <header class="site-header">
    <div class="site-header__inner">
     <a class="site-header__logo" href="index.html">
@@ -33,7 +38,17 @@
        </a>
       </li>
       <li class="site-nav__item">
-       <a class="site-nav__link site-nav__link--active" href="contacts.html">
+       <a class="site-nav__link" href="product.html">
+        Товар
+       </a>
+      </li>
+      <li class="site-nav__item">
+       <a class="site-nav__link" href="order.html">
+        Заказ
+       </a>
+      </li>
+      <li class="site-nav__item">
+       <a aria-current="page" class="site-nav__link site-nav__link--active" href="contacts.html">
         Контакты
        </a>
       </li>
@@ -56,13 +71,13 @@
     </nav>
    </div>
   </header>
-  <main>
+  <main id="main" tabindex="-1">
    <nav aria-label="Хлебные крошки" class="breadcrumbs">
     <a class="breadcrumbs__link" href="index.html">
      Главная
     </a>
-    <span class="breadcrumbs__current">
-     Каталог
+    <span aria-current="page" class="breadcrumbs__current">
+     Контакты
     </span>
    </nav>
    <section class="section">
@@ -84,31 +99,34 @@
      </li>
     </ul>
     <div id="contacts">
-     <p>
-      <h2>
-       Форма обратной связи
-      </h2>
-      Для связи с нами вы можете использовать форму обратной связи ниже.
-     </p>
-     <form action="#" class="contact-form" method="post">
+     <h2>
+      Форма обратной связи
+     </h2>
+     Для связи с нами вы можете использовать форму обратной связи ниже.
+     <form action="#" class="contact-form" method="post" novalidate="">
+      <p class="form-note">
+       Поля со звёздочкой обязательны.
+      </p>
       <div class="contact-form__field">
        <label class="contact-form__label" for="name">
         Имя
+        *
        </label>
        <input class="contact-form__input" id="name" name="name" required="" type="text"/>
       </div>
       <div class="contact-form__field">
        <label class="contact-form__label" for="email">
         E-mail
+        *
        </label>
        <input class="contact-form__input" id="email" name="email" required="" type="email"/>
       </div>
       <div class="contact-form__field">
        <label class="contact-form__label" for="message">
         Сообщение
+        *
        </label>
-       <textarea class="contact-form__textarea" id="message" name="message" required="">
-        </textarea>
+       <textarea class="contact-form__textarea" id="message" name="message" required=""></textarea>
       </div>
       <button class="button button--primary" type="submit">
        Отправить
@@ -116,6 +134,9 @@
      </form>
     </div>
    </section>
+   <p class="success-message" hidden="" id="success-message" role="status" tabindex="-1">
+    Форма успешно заполнена. Учебный проект: данные никуда не отправляются.
+   </p>
   </main>
   <footer class="site-footer">
    <p>
