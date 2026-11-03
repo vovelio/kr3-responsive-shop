@@ -1,0 +1,222 @@
+/* Практика №12. Mobile First: сначала мобильная версия, затем min-width. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+header,
+main,
+footer {
+  padding: 16px;
+}
+
+.site-header__inner {
+  margin-inline: auto;
+  padding: 0;
+}
+
+.section,
+.hero,
+.catalog-layout,
+.product,
+.breadcrumbs,
+.aside-info {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+}
+
+.site-nav__list {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.site-nav__link {
+  display: block;
+  padding: 12px 16px;
+}
+
+.hero {
+  display: grid;
+  gap: 24px;
+  align-items: center;
+  height: auto;
+  padding: clamp(16px, 4vw, 32px);
+  background-image: none;
+  background-color: var(--color-surface-accent);
+}
+
+.hero__title {
+  margin-top: 0;
+  font-size: clamp(28px, 5vw, 48px);
+  line-height: 1.15;
+}
+
+.hero__image {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-md);
+}
+
+.products-grid {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.product-card,
+.catalog-products,
+.product__content,
+.product__media,
+.order-form__field {
+  min-width: 0;
+}
+
+.product-card__title,
+.product-card__description,
+.product__content {
+  overflow-wrap: anywhere;
+}
+
+.product-card__image {
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.product-card__actions,
+.order-form__actions {
+  flex-wrap: wrap;
+}
+
+.button {
+  min-height: 44px;
+  padding: 10px 16px;
+}
+
+.catalog-layout {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: none;
+}
+
+.catalog-filters,
+.catalog-products {
+  grid-area: auto;
+}
+
+.catalog-filters {
+  position: static;
+  order: -1;
+}
+
+.product {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.order-form {
+  display: grid;
+  gap: 16px;
+  max-width: 100%;
+}
+
+.order-form__field {
+  margin-bottom: 0;
+}
+
+.order-form__field--wide {
+  grid-column: 1 / -1;
+}
+
+.order-form__input,
+.order-form__select,
+.order-form__textarea,
+.contact-form__input,
+.contact-form__textarea,
+.contact-form__select,
+.filters-form input[type="number"] {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  font-size: 16px;
+}
+
+.order-form__textarea,
+.contact-form__textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.product-table {
+  min-width: 640px;
+}
+
+.order-dialog {
+  width: min(100% - 32px, 560px);
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+}
+
+@media (min-width: 640px) {
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .site-nav__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .order-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .hero,
+  .product {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .catalog-layout {
+    grid-template-columns: 260px minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .catalog-filters {
+    position: sticky;
+    top: 16px;
+    order: initial;
+  }
+
+  .catalog-products .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .catalog-products .products-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
